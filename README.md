@@ -8,17 +8,17 @@ Docker
 # 使い方
 1. このリポジトリをローカルに落とす  
 ``` .sourceCode .shell
-$ git clone https://github.com/white0221/mujin-face.git
+$ git clone https://github.com/white0221/mujin-magnet.git
 ```  
 
 2. イメージのビルド
 ``` .sourceCode .shell
-$ docker build -t mujin-face .
+$ docker build -t mujin-magnet .
 ```  
 
 3. コンテナ立ち上げ  
 ``` .sourceCode .shell
-$ docker run -it -v $(pwd):/app -p 5000:5000 mujin-face python app.py
+$ docker run -it -v $(pwd):/app -p 5000:5000 mujin-magnet python app.py
 ```  
 
 4. ローカルホストに接続  
