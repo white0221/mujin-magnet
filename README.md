@@ -18,8 +18,8 @@ $ docker build -t mujin-magnet .
 
 3. コンテナ立ち上げ  
 ``` .sourceCode .shell
-$ docker run -it -v $(pwd):/app -p 5000:5000 mujin-magnet python app.py
+$ docker run -it -v $(pwd):/app -p 5002:5000 mujin-magnet python app.py
 ```  
 
 4. ローカルホストに接続  
-ブラウザから[localhost:5000](http://localhost:5000)に接続する
+ブラウザから[localhost:5002](http://localhost:5002)に接続する
