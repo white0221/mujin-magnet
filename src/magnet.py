@@ -1,5 +1,6 @@
 from time import sleep
 from threading import Thread
+import pigpio
 
 
 # 購入中の待機時間(商品選んでいる時間)
@@ -10,6 +11,13 @@ CLOSE_INTERVAL = 20
 # 扉が空いているかどうかを示す値
 OPEN_FLAG = 1
 CLOSE_FLAG = 0
+
+pi = pigpio.pi()
+if not pi.connected:
+ exit()
+#出力ピン番号
+pi.set_mode(8, pigpio.INPUT)
+#pi.set_pull_up_down(8, pigpio.PUD_UP)
 
 # (注)実際にはこんな状態の変化はしません
 # 　  デモバージョンです
@@ -24,8 +32,10 @@ class Magnet():
 
     def changing_state(self):
         while(True):
-            self.state = OPEN_FLAG
-            sleep(OPEN_INTERVAL)
-            self.state = CLOSE_FLAG
-            sleep(CLOSE_INTERVAL)
+            self.state = pi.read(8)
+            sleep(3)
+            #self.state = OPEN_FLAG
+            #sleep(OPEN_INTERVAL)
+            #self.state = CLOSE_FLAG
+            #sleep(CLOSE_INTERVAL)
 
