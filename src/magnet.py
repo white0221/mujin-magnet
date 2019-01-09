@@ -29,7 +29,10 @@ class Magnet():
 
     def changing_state(self):
         while(True):
-            self.state = GPIO.input(18)
+            if GPIO.input(18) == GPIO.LOW:
+                self.state = 1
+            else:
+                self.state = 0
             sleep(3)
             #self.state = OPEN_FLAG
             #sleep(OPEN_INTERVAL)
