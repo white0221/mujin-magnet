@@ -1,6 +1,6 @@
 from time import sleep
 from threading import Thread
-from .. import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 
 
 # 購入中の待機時間(商品選んでいる時間)
