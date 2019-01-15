@@ -21,9 +21,9 @@ class Magnet():
 
     def get_state(self):
         if GPIO.input(pin) == GPIO.LOW:
-            self.state = OPEN_FLAG
-        else:
             self.state = CLOSE_FLAG
+        else:
+            self.state = OPEN_FLAG
         return self.state
 
 
