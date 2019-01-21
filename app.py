@@ -1,4 +1,4 @@
-from flask import Flask, json, make_response, stream_with_context, request, Response
+from flask import Flask, json, stream_with_context, request, Response
 from src import Magnet
 
 app = Flask(__name__)
@@ -7,9 +7,10 @@ mag = Magnet()
 @app.route('/')
 def main():
   def generate(): 
+     response = {'state':None,'errer':None}
      while(True):
-         yield '{"state":'
-         yield json.dumps(mag.get_state()) + '}'
+         response['state'] = mag.get_state()
+         yield json.dumps(response) 
   return Response(stream_with_context(generate()),mimetype = 'application/json')
 
 if __name__ == '__main__':
