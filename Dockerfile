@@ -5,6 +5,8 @@ WORKDIR /app
 ENV http_proxy http://proxy.noc.kochi-tech.ac.jp:3128
 ENV https_proxy http://proxy.noc.kochi-tech.ac.jp:3128
 
+RUN pip install --upgrade pip
+
 RUN apk update && \
     apk upgrade && \
     apk add musl \
