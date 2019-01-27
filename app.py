@@ -1,4 +1,5 @@
-from flask import Flask, json, stream_with_context, request, Response
+from flask import Flask, stream_with_context, request, Response, jsonify
+import json
 from src import Magnet
 
 app = Flask(__name__)
@@ -11,7 +12,8 @@ def main():
      while(True):
          response['state'] = mag.get_state()
          yield json.dumps(response) 
-  return Response(stream_with_context(generate()),mimetype = 'application/json')
+         yield '\n'
+  return Response(stream_with_context(generate()), mimetype='application/json')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
